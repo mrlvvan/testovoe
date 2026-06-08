@@ -1,0 +1,29 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: fluid(24px, 40px);
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $color-text-soft;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}

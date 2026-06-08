@@ -1,0 +1,15 @@
+// =============================================================================
+// Functions
+// =============================================================================
+@use 'sass:math';
+
+// «Резиновое» значение: плавно интерполирует от $min до $max
+// в диапазоне ширины вьюпорта [$min-vw .. $max-vw] без брейкпоинтов.
+// Использование: font-size: fluid(28px, 46px);
+@function fluid($min, $max, $min-vw: 320px, $max-vw: 1920px) {
+  $slope: math.div($max - $min, $max-vw - $min-vw); // безразмерный
+  $intercept: $min - $slope * $min-vw;              // px
+  $slope-vw: $slope * 100;                          // число -> в vw
+
+  @return clamp(#{$min}, #{$intercept} + #{$slope-vw}vw, #{$max});
+}

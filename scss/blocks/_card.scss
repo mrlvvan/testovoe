@@ -1,0 +1,95 @@
+@use '../abstracts/variables' as *;
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-surface;
+  border: 1px solid $color-card-border; 
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: $shadow-small;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: $shadow-regular; 
+  }
+
+  &__media {
+    aspect-ratio: 390 / 240;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 24px;
+  }
+
+  &__tag {
+    align-self: flex-start;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #fff;
+    background-color: $color-muted; 
+    margin-bottom: 20px;
+  }
+
+  &__tag--marketing     { background-color: $tag-marketing; }
+  &__tag--management    { background-color: $tag-management; }
+  &__tag--hr-recruiting { background-color: $tag-hr; }
+  &__tag--design        { background-color: $tag-design; }
+  &__tag--development   { background-color: $tag-development; }
+
+  &__title {
+    font-weight: 700;
+    font-size: 20px; 
+    line-height: 1.5;
+    color: $color-text;
+    margin-bottom: 24px;
+    min-height: calc(20px * 1.5 * 2);
+  }
+
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 16px;
+    color: $color-accent;
+  }
+
+  &__author {
+    position: relative;
+    padding-left: 9px;
+    font-size: 16px;
+    color: $color-muted;
+
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 16px;
+      background-color: $color-divider;
+    }
+  }
+}
